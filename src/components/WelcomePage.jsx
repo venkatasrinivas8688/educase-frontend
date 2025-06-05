@@ -8,8 +8,7 @@ export default function WelcomePage() {
       <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md text-center">
         <h1 className="text-3xl font-bold mb-4">Welcome to PopX</h1>
         <p className="text-gray-700 mb-6">
-          Lorem ipsum dolor sit consetular. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit
         </p>
         <div className="flex flex-col gap-4">
           <Link
