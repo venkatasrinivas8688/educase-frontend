@@ -21,7 +21,7 @@ export default function LoginPage() {
     console.log(typeof savedUser);
     console.log(savedUser);
 
-    if (savedUser && savedUser.email === fromDetails.email) {
+    if (savedUser && savedUser.email === fromDetails.email && savedUser.password===formDetails.password) {
       console.log(fullName, email);
       localStorage.setItem("userDetails", JSON.stringify({ email, fullName }));
       navigate("/profile", {
