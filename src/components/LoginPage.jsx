@@ -5,7 +5,7 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const { fullName, email } = location.state || {};
-  const [fromDetails, setFormDetails] = useState({
+  const [formDetails, setFormDetails] = useState({
     email: "",
     password: "",
   });
@@ -15,13 +15,13 @@ export default function LoginPage() {
   });
 
   const handleLogin = () => {
-    console.log("Email:", fromDetails.email);
-    console.log("Password:", fromDetails.password);
+    console.log("Email:", formDetails.email);
+    console.log("Password:", formDetails.password);
     const savedUser = JSON.parse(localStorage.getItem("userLoginCredientials"));
     console.log(typeof savedUser);
     console.log(savedUser);
 
-    if (savedUser && savedUser.email === fromDetails.email && savedUser.password===formDetails.password) {
+    if (savedUser && savedUser.email === formDetails.email && savedUser.password===formDetails.password) {
       console.log(fullName, email);
       localStorage.setItem("userDetails", JSON.stringify({ email, fullName }));
       navigate("/profile", {
@@ -32,7 +32,7 @@ export default function LoginPage() {
     }
   };
   const handleChange = (e) => {
-    setFormDetails({ ...fromDetails, [e.target.name]: e.target.value });
+    setFormDetails({ ...formDetails, [e.target.name]: e.target.value });
   };
   const handleFocus = (e) => {
     setFocused({ ...focused, [e.target.name]: true });
@@ -71,8 +71,8 @@ export default function LoginPage() {
           Lorem ipset dolow iset newtion
         </p>
 
-        {inputField("Email Address", "email", fromDetails.email, "email")}
-        {inputField("Password", "password", fromDetails.password, "password")}
+        {inputField("Email Address", "email", formDetails.email, "email")}
+        {inputField("Password", "password", formDetails.password, "password")}
 
         <button
           onClick={handleLogin}
